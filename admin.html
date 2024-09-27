@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração - Brechó Vintage</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Administração Brechó</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Administração</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Painel de Administração -->
+    <div class="container mt-5">
+        <h1 class="text-center">Painel de Administração</h1>
+        <p class="text-center">Gerencie seus produtos, promoções e usuários aqui</p>
+
+        <!-- Cards de Gerenciamento com Dropdown CRUD -->
+        <div class="row mt-4">
+            <!-- Gerenciar Produtos -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gerenciar Produtos</h5>
+                        <p class="card-text">Faça o gerenciamento completo dos produtos do catálogo.</p>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle w-100" type="button" id="crudProducts" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações de Produtos
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="crudProducts">
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addProductModal">Adicionar Produto</a></li>
+                                <li><a class="dropdown-item" href="#">Visualizar Produtos</a></li>
+                                <li><a class="dropdown-item" href="#">Atualizar Produto</a></li>
+                                <li><a class="dropdown-item" href="#">Excluir Produto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gerenciar Promoções -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gerenciar Promoções</h5>
+                        <p class="card-text">Gerencie promoções e descontos.</p>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle w-100" type="button" id="crudPromotions" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações de Promoções
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="crudPromotions">
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addPromoModal">Cadastrar Promoção</a></li>
+                                <li><a class="dropdown-item" href="#">Visualizar Promoções</a></li>
+                                <li><a class="dropdown-item" href="#">Atualizar Promoção</a></li>
+                                <li><a class="dropdown-item" href="#">Excluir Promoção</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gerenciar Usuários -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gerenciar Usuários</h5>
+                        <p class="card-text">Gerencie os usuários cadastrados.</p>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle w-100" type="button" id="crudUsers" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações de Usuários
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="crudUsers">
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#manageUsersModal">Adicionar Usuário</a></li>
+                                <li><a class="dropdown-item" href="#">Visualizar Usuários</a></li>
+                                <li><a class="dropdown-item" href="#">Atualizar Usuário</a></li>
+                                <li><a class="dropdown-item" href="#">Excluir Usuário</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais (mesmo código anterior para adição de produtos, promoções e usuários) -->
+    <!-- Modal para Adicionar Produto -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Adicionar Produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nome do Produto</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Preço</label>
+                            <input type="number" class="form-control" id="productPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">Imagem do Produto</label>
+                            <input type="file" class="form-control" id="productImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Cadastrar Promoção -->
+    <div class="modal fade" id="addPromoModal" tabindex="-1" aria-labelledby="addPromoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPromoModalLabel">Cadastrar Promoção</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="promoName" class="form-label">Nome da Promoção</label>
+                            <input type="text" class="form-control" id="promoName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="promoDiscount" class="form-label">Desconto (%)</label>
+                            <input type="number" class="form-control" id="promoDiscount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="promoDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="promoDescription" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Cadastrar Promoção</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Gerenciar Usuários -->
+    <div class="modal fade" id="manageUsersModal" tabindex="-1" aria-labelledby="manageUsersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageUsersModalLabel">Administrar Usuários</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Exemplo de tabela de usuários -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>João da Silva</td>
+                                <td>joao@example.com</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Maria Oliveira</td>
+                                <td>maria@example.com</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
