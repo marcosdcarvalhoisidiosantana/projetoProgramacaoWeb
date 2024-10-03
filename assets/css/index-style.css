@@ -66,3 +66,6 @@ body {
     background-color: #a06046; /* Efeito hover no botão */
 }
 
+.form-group {
+    margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+}
